@@ -1,0 +1,18 @@
+
+
+<div class="container">
+  <h1>Call detail</h1>
+  <button class="btn btn-outline-primary" (click)="archiveCall()">Archive</button>
+  <div class="card"   *ngIf="call">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Duration : {{call.duration}}</li>
+      <li class="list-group-item">To: {{call.to}}</li>
+      <li class="list-group-item"> From: {{call.from}}</li>
+      <li class="list-group-item"> Via : {{call.via}}</li>
+      <li class="list-group-item">Call type : {{call.call_type}}</li>
+      <li class="list-group-item">Date : {{call.created_at}}</li>
+      
+    </ul>
+  </div>
+  
+</div>          

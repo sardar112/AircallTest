@@ -1,0 +1,19 @@
+$color-black: black;
+
+.navbar{
+    background-color : lightgrey
+}
+
+li{
+    a{
+        color:$color-black;
+        font-size: medium;
+        
+    }
+}
+
+.navbar-brand{
+    color:$color-black;
+    font-weight :bold;
+    font-size: 22px;
+}

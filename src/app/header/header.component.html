@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg  mb-5">
+    <a class="navbar-brand" href="#">Air Calls</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/" *ngIf="!isLogged" routerLinkActive="active-link">Login</a>
+          </li>
+        <li class="nav-item ">
+          <a class="nav-link" routerLink="/allCalls" *ngIf="isLogged" routerLinkActive="active">All Calls</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/missedCalls" *ngIf="isLogged" routerLinkActive="active">Missed Calls</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" routerLink="/archivedCalls" *ngIf="isLogged" routerLinkActive="active">Archived Calls </a>
+          </li>
+        
+      </ul>
+       <button class="btn btn-sm btn-outline-primary"(click)="logOut()" *ngIf="isLogged" style="color:black">Logout</button>
+    </div>
+  </nav>
