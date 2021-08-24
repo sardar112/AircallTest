@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit {
           this.toastr.success("Login Succesfully",'Success');
          localStorage.setItem('token',res.access_token.toString());
          this.router.navigate(['/allCalls']);
-         this.auth.refresh_token(this.loginForm.value).subscribe(data => {
-          localStorage.setItem('token',data.access_token.toString());
-          this.router.navigate(['/allCalls']);
-        });
+        //  this.auth.refresh_token(this.loginForm.value).subscribe(data => {
+        //   localStorage.setItem('token',data.access_token.toString());
+        //   this.router.navigate(['/allCalls']);
+        // });
         this.auth.Login.next(this.auth.isLoggedIn);
          
         }

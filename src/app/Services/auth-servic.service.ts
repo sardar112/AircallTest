@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class AuthServicService {
+  
  public Login: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
     
   constructor(private http: HttpClient,private router : Router , private toastr: ToastrService) {
