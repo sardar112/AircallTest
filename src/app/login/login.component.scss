@@ -1,83 +1,74 @@
 @import "../../styles.scss";
 
-.row{
-    margin:auto;
-    align-self: center;
-    margin-top: 7rem;
+.row {
+  margin: auto;
+  align-self: center;
+  margin-top: 7rem;
 }
-.form{
-    text-align: center;
-
+.form {
+  text-align: center;
 }
 
-.login-form{
-    background: $color-grey-light;
-    box-shadow: 0rem .3rem .6rem $color-box-shadow;
-    border-radius: .4rem;
-    padding: 6rem 6rem;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
+.login-form {
+  background: $color-grey-light;
+  box-shadow: 0rem 0.3rem 0.6rem $color-box-shadow;
+  border-radius: 0.4rem;
+  padding: 6rem 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-    &__heading{
-        font-size: 4rem;
-        color: $color-dark-red;
-        margin-bottom: 4rem;
-        @include fontFamily;
-        @include textDecorate;
-    }
-
+  &__heading {
+    font-size: 4rem;
+    color: $color-dark-red;
+    margin-bottom: 4rem;
+    @include fontFamily;
+    @include textDecorate;
+  }
 }
 
 .form-group {
-    width: 80%;
-    margin-top: 1rem;
-
+  width: 80%;
+  margin-top: 1rem;
 }
 .form-control {
-padding: 2rem 2rem;
-border-radius: 2rem;
-font-size:1.6rem;
-@include fontFamily;
-outline: none;
-background-color: $color-white;
+  padding: 2rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.6rem;
+  @include fontFamily;
+  outline: none;
+  background-color: $color-white;
 
-
-&::-webkit-input-placeholder{
+  &::-webkit-input-placeholder {
     color: $color-grey-dark;
     @include fontFamily;
+  }
 }
 
+.error {
+  font-size: 1.8rem;
+  @include fontFamily;
+  font-weight: medium;
 }
 
-.error{
-    font-size:1.8rem;
-    @include fontFamily;
-    font-weight: medium;
+.btn {
+  width: 15rem;
+  color: $color-grey-dark;
+  border: 1px solid darkgrey;
+  border-radius: 3rem;
+  font-size: 1.8rem;
+  @include fontFamily;
+  margin: 3rem;
+  padding: 0.7rem;
+  font-weight: 600;
 
-}
-
-.btn{
-    width: 15rem;
-    color: $color-grey-dark;
-    border: 1px solid darkgrey;
-    border-radius: 3rem;
-    font-size:1.8rem;
-    @include fontFamily;
-    margin: 3rem;
-    padding: .7rem;
-    font-weight: 600;
-
-  &:hover:enabled{
-      color:$color-white;
-      background-color: $color-dark-red;
-
+  &:hover:enabled {
+    color: $color-white;
+    background-color: $color-dark-red;
   }
   &:disabled {
     cursor: not-allowed;
     pointer-events: all !important;
   }
-    
 }
-

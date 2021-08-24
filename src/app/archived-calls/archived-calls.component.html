@@ -28,12 +28,11 @@
       </tbody>
     </table>
     <div class="pagination">
-      <ngb-pagination
-       [(page)]="page" [pageSize]="limit"
-       [collectionSize]="total" 
-       (pageChange)="getCalls($event)"
-       class="pagination-data">
+      <ngb-pagination [(page)]="page" [pageSize]="limit" [collectionSize]="total" (pageChange)="getCalls($event)"
+        class="pagination-data">
       </ngb-pagination>
     </div>
   </div>
 </div>
+
+<ngx-spinner></ngx-spinner>

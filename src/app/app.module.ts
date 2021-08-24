@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule ,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxSpinnerModule,
     FormsModule,
     ToastrModule.forRoot({
       timeOut: 10000,
@@ -41,6 +43,8 @@ import { ToastrModule } from 'ngx-toastr';
       preventDuplicates: true,
     }),
     ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
   providers: [
    { provide:HTTP_INTERCEPTORS,
     useClass:TokenIntercepterService,
