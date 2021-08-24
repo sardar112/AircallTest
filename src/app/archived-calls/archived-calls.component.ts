@@ -25,8 +25,7 @@ ngOnInit(): void {
    this.activate.queryParams.subscribe(params=>{
       this.offset = params.offset? params.offset : 0;
      this.limit = params.limit ? params.limit : this.limit;
-    // console.log(params);
-    this.api.allCalls(this.offset, this.limit).subscribe(res=>{
+      this.api.allCalls(this.offset, this.limit).subscribe(res=>{
       this.calls=res.nodes.filter((res=>{
        return  res.is_archived===true;
       }));

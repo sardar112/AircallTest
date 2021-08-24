@@ -18,21 +18,8 @@ export class CallDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
         this.id= params.id 
       this.api.singleCall(params.id).subscribe(res=>{
-      // console.log(res);
       this.call=res
     })
     })
-  
-
-    this.auth.pusher().subscribe(res=>{
-      console.log(res);
-    })
   }
-
-archiveCall(){
-  this.api.archivedCalls(this.id,this.call).subscribe(res=>{
-    console.log(res);
- })
-}
-
 }

@@ -1,18 +1,42 @@
+<div class="call col-5">
+  <h1 class="call__heading">Call detail</h1>
+  <!-- <button class="btn btn-outline-primary" (click)="archiveCall()">Archive</button> -->
+  <div class="card call-card" *ngIf="call">
+    <div class="card-body call-card__body">
 
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th scope="row" class="card-title call-card__title">Duration :</th>
+            <td class="call-card__text">{{call.duration}}</td>
 
-<div class="container">
-  <h1>Call detail</h1>
-  <button class="btn btn-outline-primary" (click)="archiveCall()">Archive</button>
-  <div class="card"   *ngIf="call">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Duration : {{call.duration}}</li>
-      <li class="list-group-item">To: {{call.to}}</li>
-      <li class="list-group-item"> From: {{call.from}}</li>
-      <li class="list-group-item"> Via : {{call.via}}</li>
-      <li class="list-group-item">Call type : {{call.call_type}}</li>
-      <li class="list-group-item">Date : {{call.created_at}}</li>
-      
-    </ul>
+          </tr>
+          <tr>
+            <th scope="row" class="card-title call-card__title">To:</th>
+            <td class="call-card__text">{{call.to}}</td>
+
+          </tr>
+          <tr>
+            <th scope="row" class="card-title call-card__title">From:</th>
+            <td class="call-card__text">{{call.from}}</td>
+          </tr>
+          <tr>
+            <th scope="row" class="card-title call-card__title">Via:</th>
+            <td class="call-card__text">{{call.via}}</td>
+          </tr>
+          <tr>
+            <th scope="row" class="card-title call-card__title">Call type:</th>
+            <td class="call-card__text">{{call.call_type}}</td>
+          </tr>
+          <tr>
+            <th scope="row" class="card-title call-card__title">Date:</th>
+            <td class="call-card__text">{{call.created_at | date}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="call-card__btn" routerLink="/allCalls">
+          Back
+      </button>
+    </div>
   </div>
-  
-</div>          
+</div>

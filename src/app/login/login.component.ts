@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthServicService } from '../Services/auth-servic.service'
 @Component({
   selector: 'app-login',
@@ -9,14 +10,17 @@ import { AuthServicService } from '../Services/auth-servic.service'
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private fb:FormBuilder,private router:Router,private auth:AuthServicService ) { }
-  loginForm!: FormGroup;
+  constructor( private fb:FormBuilder,private router:Router,
+    private auth:AuthServicService,private toastr: ToastrService
+     ) { }
+
+  loginForm: FormGroup ;
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
 
-      username: [''],
-      password: ['']
+      username: ['',Validators.required],
+      password: ['' ,Validators.required]
   
       })
   }
@@ -24,19 +28,21 @@ export class LoginComponent implements OnInit {
   onSubmit(){
 
     this.auth.login(this.loginForm.value).subscribe(res=> {
-         console.log( "login succesful")
         if(res){
+          this.toastr.success("Login Succesfully",'Success');
          localStorage.setItem('token',res.access_token.toString());
          this.router.navigate(['/allCalls']);
          this.auth.refresh_token(this.loginForm.value).subscribe(data => {
           localStorage.setItem('token',data.access_token.toString());
           this.router.navigate(['/allCalls']);
-
-        })
+        });
+        this.auth.Login.next(this.auth.isLoggedIn);
          
         }
+        else {
+          this.toastr.error("Error",'Error');
 
-
+        }
     })
   
   }

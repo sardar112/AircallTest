@@ -1,52 +1,36 @@
-<div class="container">
-     <div class="row">
-         <h1>All Calls</h1>
-     </div>
-    <div class="row">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">SrNo</th>
-                <th scope="col">From</th>
-                <th scope="col">To</th>
-                <th scope="col">Via</th>
-                <th scope="col">Direction</th>
-                <th scope="col">Type</th>
-                <th scope="col">Date</th>
-                <!-- <th scope="col">Archived</th> -->
-                <th scope="col">Duration</th>
-
-
-              </tr>
-            </thead>
-            <tbody>
-              <tr  [routerLink]="['/callDetail' ,call.id]"  
-               *ngFor="let call of calls ; index as i " 
-         >
-                <td>{{i}}</td>
-
-                <td>{{call.from}}</td>
-                <td>{{call.to}}</td>
-                <td>{{call.via}}</td>
-                <td>{{call.direction}}</td>
-                <td>{{call.call_type}}</td>
-                <td>{{call.created_at}}</td>
-                <!-- <td>{{call.is_archived}}</td> -->
-                <td>{{call.duration}}</td>
-
-            
-              </tr>
-            </tbody>
-          </table> 
-           <ngb-pagination
-           [(page)]="page"
-           [pageSize]="limit"
-           [collectionSize]="total"
-            (pageChange)="getCalls($event)"
-           ></ngb-pagination>   
-
+<div class="container calls">
+  <h1 class="calls__heading">All Calls</h1>
+  <div class="row calls__content">
+    <table class="table table-borderless ">
+      <thead>
+        <tr class="table__row-head">
+          <th scope="col" class="table__heading">SrNo</th>
+          <th scope="col" class="table__heading">From</th>
+          <th scope="col" class="table__heading">To</th>
+          <th scope="col" class="table__heading">Via</th>
+          <th scope="col" class="table__heading">Direction</th>
+          <th scope="col" class="table__heading">Type</th>
+          <th scope="col" class="table__heading">Date</th>
+          <th scope="col" class="table__heading">Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr [routerLink]="['/callDetail' ,call.id]" *ngFor="let call of calls ; index as i " class="table__row-content">
+          <td>{{i}}</td>
+          <td>{{call.from}}</td>
+          <td>{{call.to}}</td>
+          <td>{{call.via}}</td>
+          <td>{{call.direction}}</td>
+          <td>{{call.call_type}}</td>
+          <td>{{call.created_at | date}}</td>
+          <td>{{call.duration}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <ngb-pagination [(page)]="page" [pageSize]="limit"
+       [collectionSize]="total" (pageChange)="getCalls($event)"
+        class="pagination-data"></ngb-pagination>
     </div>
-   
-
-
+  </div>
 </div>

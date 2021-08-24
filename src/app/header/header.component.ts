@@ -1,4 +1,7 @@
+import { OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 import { AuthServicService } from '../Services/auth-servic.service';
 
 @Component({
@@ -6,20 +9,22 @@ import { AuthServicService } from '../Services/auth-servic.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   isLogged:boolean | undefined;
-  isLoggedOut:boolean | undefined;
-  constructor(private auth: AuthServicService) { }
+  public subscription:Subscription;
+  constructor(private auth: AuthServicService ,private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.isLogged=this.auth.isLoggedIn;
-   
-
+  this.subscription= this.auth.Login.subscribe(result => {
+      this.isLogged=result;
+    })
   }
  logOut() {
    this.auth.logout();
    this.isLogged=false;
+ }
 
-
+ ngOnDestroy(){
+   this.subscription.unsubscribe();
  }
 }

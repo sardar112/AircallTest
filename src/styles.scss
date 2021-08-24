@@ -2,3 +2,48 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+$color-grey-dark:#777;
+$color-white: #fff;
+$color-black: rgba(61, 48, 48, 0.897);
+$color-red:rgb(196, 119, 119);
+$color-dark-red:#ba0a00;
+$color-box-shadow:#00000029;
+$color-grey-light:rgb(248, 247, 247);
+
+
+
+
+ * {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+
+
+  *,
+  ::before,
+  ::after {
+ box-sizing: inherit;
+  }
+  html{
+      font-size:62.5%;
+      box-sizing: border-box;
+  }
+  body {
+    font-family: Poppins;
+    font-weight:400;
+    color : $color-grey-dark;
+   }
+   
+   @mixin textDecorate {
+    text-decoration: none;
+    text-transform: uppercase;
+   }
+   @mixin fontFamily {
+    font-family: Poppins ;
+    line-height: 1.7;
+    letter-spacing: normal;
+   }
+
+   

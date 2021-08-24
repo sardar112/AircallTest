@@ -1,19 +1,63 @@
-$color-black: black;
+@import "../../styles.scss";
 
 .navbar{
-    background-color : lightgrey
-}
+    background: $color-white ;
+    box-shadow: 0rem .2rem 2.5rem $color-box-shadow;
+   
+    &-brand{
+        font-size: 1.8rem;
+        color: $color-grey-dark;
+        font-weight: bold;
+        @include fontFamily;
+        @include textDecorate;
+        transition: all .2s;
 
-li{
-    a{
-        color:$color-black;
-        font-size: medium;
-        
+        &:hover{
+            color: $color-dark-red;
+        }
     }
+  
+    &__logo{
+        height: 6rem;
+        margin-left: .3rem;
+    }
+
+    &-collapse {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 3rem;
+    }
+   
+}
+.nav-item {
+    margin-right: 1rem;
 }
 
-.navbar-brand{
-    color:$color-black;
-    font-weight :bold;
-    font-size: 22px;
+.nav-link {
+    font-size: 1.5rem;
+    color: $color-grey-dark;
+    font-weight: 500;
+    @include fontFamily;
+    @include textDecorate;
+    transition: all .2s;
+&:hover{
+    color: $color-dark-red;
 }
+  
+}
+
+
+.btn{
+    color: $color-grey-dark;
+    font-size: 1.6rem;
+    font-weight: 500;
+    @include fontFamily;
+    @include textDecorate;
+
+&:hover{
+  
+    color: $color-dark-red;
+
+}
+}
+

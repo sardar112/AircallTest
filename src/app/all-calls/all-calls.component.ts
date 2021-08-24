@@ -25,24 +25,15 @@ export class AllCallsComponent implements OnInit {
      this.activate.queryParams.subscribe(params=>{
         this.offset = params.offset? params.offset : 0;
        this.limit = params.limit ? params.limit : this.limit;
-      // console.log(params);
       this.api.allCalls(this.offset, this.limit).subscribe(res=>{
-        // console.log(res);
         this.calls=res.nodes;
-        // console.log(this.calls)
         this.next=res.hasNextPage;
         this.total=res.totalCount;
-        // console.log(this.page);
-
     })
-
-     })
- 
-   
+     });
   }
 
   getCalls(event: any){
-  
     this.router.navigate(["/allCalls"],{queryParams:{offset:(event-1)*this.limit,limit:this.limit}});
   }
 
